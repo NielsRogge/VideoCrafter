@@ -49,6 +49,9 @@ def run_inference(args, gpu_num, gpu_no, **kwargs):
     model = model.cuda(gpu_no)
     assert os.path.exists(args.ckpt_path), f"Error: checkpoint [{args.ckpt_path}] Not Found!"
     model = load_model_checkpoint(model, args.ckpt_path)
+
+    print("Type of model:", type(model))
+
     model.eval()
 
     ## sample shape
